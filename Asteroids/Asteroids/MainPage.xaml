@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Asteroids.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Asteroids" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="This app will show you information about asteroids from NASA API. You can select only potentionally dangerous asteroids by clicking the checkbox. Give it a try :)" FontSize="16" Padding="30,0,30,0"/>
+        <Button Text="Sync app" Clicked="Button_Clicked" ></Button>
+        <Label x:Name="syncLabel" HorizontalOptions="Center"></Label>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <CheckBox x:Name="chbDangerous" CheckedChanged="chbDangerous_CheckedChanged" Grid.Column="0" Margin="0"></CheckBox>
+            <Label Grid.Column="1" Text="Show only dangerous asteroids" VerticalOptions="Center"/>
+        </Grid>
+        <Label x:Name="mylabel"></Label>
+        <ListView x:Name="asteroidList" ItemsSource="{Binding asteroids}"></ListView>
+    </StackLayout>
+
+</ContentPage>
